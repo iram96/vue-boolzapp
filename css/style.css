@@ -36,10 +36,62 @@
   margin: auto;
 }
 
-.dotted-border {
-  border: 5px dotted black;
-}
+/* .dotted-border {
+    border: 5px dotted black;
+  } */
 
 .maxw-60 {
   max-width: 60px;
+  border-radius: 50%;
+}
+.maxw-100 {
+  min-height: 100px;
+  max-width: 100%;
+}
+
+.marginx-0 {
+  margin-right: 0rem;
+  margin-left: 0rem;
+}
+
+.white-circle {
+  background-color: white;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.bgc-lightblue {
+  background-color: #8edafc;
+}
+
+.clr-lightblue {
+  color: #8edafc;
+}
+
+.bgc-gray {
+  background-color: #eaeaea;
+}
+
+#current-chat {
+  background-image: url("../img/mine.jpg");
+  display: flex;
+  flex-direction: column;
+}
+
+#chat-messages {
+  min-height: 700px;
+}
+
+#type-text {
+  height: 100%;
+  background-color: white;
+}
+
+.message {
+  background-color: #d5f9ba;
+  min-height: 60px;
+
+  border-radius: 20px;
 }
