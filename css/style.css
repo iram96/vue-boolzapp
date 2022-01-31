@@ -36,10 +36,10 @@
   margin: auto;
 }
 
-#chat-list {
+.dotted-border {
   border: 5px dotted black;
 }
 
-#current-chat {
-  border: 5px dotted black;
+.maxw-60 {
+  max-width: 60px;
 }
