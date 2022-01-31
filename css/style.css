@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+/* body{
+  max-width: 1200px;
+  margin: 0 auto;
+} */
+
+/*Background colors*/
+
+.bg-body {
+  height: 100vh;
+  width: 100%;
+  /* background: linear-gradient(to bottom, #009688, #dadbd4); */
+  background: linear-gradient(
+    #009688,
+    #009688 15%,
+    #d9dbd5 0
+  );
+  display: flex;
+}
+
+#wa-box {
+  width: 80%;
+  height: 90%;
+  background-color: red;
+  margin: auto;
+}
+
+#chat-list {
+  border: 5px dotted black;
+}
+
+#current-chat {
+  border: 5px dotted black;
+}
