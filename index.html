@@ -49,16 +49,16 @@
                 <div class="p-2 text-div">
 
                     <div class="input-group marginx-0 px-2">
-                        <button class="btn " type="button" id="button-addon1"><i class="fas fa-search"></i></button>
-                        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <button class="btn " type="button" id="button-addon1" ><i class="fas fa-search"></i></button>
+                        <input type="text" class="form-control" placeholder="" v-model='myLetterSearch' @keyup.enter='searchLetter()'>
                     </div>
                 </div>
                     
 
                 <!-- Lista delle chat -->
-                <!-- !LA LISTA NON HA SCROLL IMPLEMENTATO -->
+                
                 <div class="whole-list col">
-                    <div v-for='(contact, index) in contacts' @click='getCurrentChatUser(index); toggleBGC(index)'  role="button" :class="{ 'bgcwhite' : isVisible(index) }" >
+                    <div v-for='(contact, index) in contacts' @click='getCurrentChatUser(index); toggleBGC(index)'  role="button" :class="{'bgcwhite' : isVisible(index)}" v-if='isVisible(index)'  >
                          <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="My user Image" class="maxw-60 d-inline-block m-2 ">
                         <span   class="d-inline-block mt-0 ">{{ contact.name }}</span>
                         
@@ -88,17 +88,28 @@
                 <!-- Messaggi -->
 
                 <div id="chat-messages" class="py-5">
-                   <div  v-for='(contact, index) in contacts' v-if='isActive(index)'  >
+                   
 
-                       <div v-for='(message, index) in contacts[index].messages' class="row marginx-0 my-2" >
-                           <div :class="{ 'offset-6 sent ' : sentOrReceived(index)  }" class=" offset-1 col-4 message-box received position-relative">
+                       <div v-for='(message, index) in contacts[currentOpenChat].messages' class="row marginx-0 my-2" >
+                           <div :class="{ 'offset-6 sent ' : sentOrReceived(index)  }" class=" offset-1 col-4 message-box received position-relative dropdown">
                                
                                <span>{{ message.text }}</span>
+                               <div class="dropdown position-absolute "
+                               :class="{ 'end-0' : sentOrReceived(index)}">
+                                   <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    
+                                   </button>
+                                   <ul id='text-choices' class="dropdown-menu position-absolute" aria-labelledby="dropdownMenuButton1">
+                                     <li><a class="dropdown-item " href="#">Delete Message</a></li>
+                                     <li><a class="dropdown-item" href="#">Info</a></li>
+                                     
+                                   </ul>
+                               </div>
                                <span class="data-invio">{{ message.date}}</span>
                             </div>
                         </div>
                         
-                    </div>
+                    
 
                 </div>
                 <div id="type-text" class="row bgc-gray w-100 marginx-0 text-div">
@@ -118,7 +129,7 @@
         </div>
 
     </div>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

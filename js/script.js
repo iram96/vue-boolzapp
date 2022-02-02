@@ -5,6 +5,7 @@ dayjs.extend(dayjs_plugin_customParseFormat);
 const chatList = new Vue({
      el: '#wa-box',
      data: {
+       myLetterSearch: '',
        newMessage: '',
        currentOpenChat: 0,
       user: {
@@ -79,7 +80,7 @@ const chatList = new Vue({
         {
           name: 'Luisa',
           avatar: '_6',
-          visible: true,
+          visible: false,
           messages: [{
             date: '10/01/2020 15:30:55',
             text: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -104,15 +105,13 @@ const chatList = new Vue({
          
         },
         isVisible(index){
+          console.log(this.contacts[index].visible)
           return this.contacts[index].visible;
         },
-        toggleBGC(index){
-          this.contacts[index].visible = !this.contacts[index].visible;
+        // toggleBGC(index){
+        //   this.contacts[index].visible = !this.contacts[index].visible;
           
-        },
-        isCurrentChatOpen(){
-
-        },
+        // },
         sentOrReceived(index){
           const currentIndex = this.currentOpenChat;
           const status = this.contacts[currentIndex].messages[index].status;
@@ -147,9 +146,52 @@ const chatList = new Vue({
             text: computerReplyText,
             status: 'received'
           };
+         
+          
           return this.contacts[this.currentOpenChat].messages.push(computerReply);
+          
           }, 1000);
+        },
+        searchLetter(){
+          const myArray = Array.from(this.myLetterSearch);
+          console.log(myArray)
+
+          // se è vuoto metto a tutti visible = true
+          console.log(this.contacts.visible);
+          if (myArray === []){
+            this.contacts.visible = true;
+            console.log(this.contacts.visible); 
+
+
+          }else {
+
+            for (let i = 0; i < this.contacts.length; i++){
+              
+              const contactsArray = Array.from(this.contacts[i].name)
+              console.log(contactsArray);
+              for (let j = 0; j < myArray.length; j++){
+                
+  
+                if (contactsArray[j] === myArray[j]){
+                  this.contacts[i].visible = true;
+                } else{
+                  this.contacts[i].visible = false;
+                } 
+             
+            }
+          }
+
+
+          
+
+          this.myLetterSearch = '';
+          
+
+
+
+          }
         }
+        
 
       }
 })

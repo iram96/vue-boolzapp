@@ -141,3 +141,7 @@
   overflow-y: scroll;
   background-color: white;
 }
+
+#text-choices {
+  z-index: 1;
+}
