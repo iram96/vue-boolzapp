@@ -91,9 +91,9 @@
                    
 
                        <div v-for='(message, index) in contacts[currentOpenChat].messages' class="row marginx-0 my-2" >
-                           <div :class="{ 'offset-6 sent ' : sentOrReceived(index)  }" class=" offset-1 col-4 message-box received position-relative dropdown">
+                           <div :class="{ 'offset-7 sent ' : sentOrReceived(index)  }" class=" offset-1 col-3 message-box received position-relative dropdown">
                                
-                               <span>{{ message.text }}</span>
+                               <span class="py-3">{{ message.text }}</span>
                                <!-- <div class="dropdown position-absolute "
                                :class="{ 'end-0' : sentOrReceived(index)}">
                                    <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
