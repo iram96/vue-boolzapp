@@ -58,7 +58,7 @@
                 <!-- Lista delle chat -->
                 
                 <div class="whole-list col">
-                    <div v-for='(contact, index) in contacts' @click='getCurrentChatUser(index); toggleBGC(index)'  role="button" :class="{'bgcwhite' : isVisible(index)}" v-if='isVisible(index)'  >
+                    <div v-for='(contact, index) in contacts' @click='getCurrentChatUser(index)'  role="button" :class="{'bgcdarkgray' : isActive(index)}" v-if='isVisible(index)'  >
                          <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="My user Image" class="maxw-60 d-inline-block m-2 ">
                         <span   class="d-inline-block mt-0 ">{{ contact.name }}</span>
                         
@@ -94,7 +94,7 @@
                            <div :class="{ 'offset-6 sent ' : sentOrReceived(index)  }" class=" offset-1 col-4 message-box received position-relative dropdown">
                                
                                <span>{{ message.text }}</span>
-                               <div class="dropdown position-absolute "
+                               <!-- <div class="dropdown position-absolute "
                                :class="{ 'end-0' : sentOrReceived(index)}">
                                    <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     
@@ -104,7 +104,7 @@
                                      <li><a class="dropdown-item" href="#">Info</a></li>
                                      
                                    </ul>
-                               </div>
+                               </div> -->
                                <span class="data-invio">{{ message.date}}</span>
                             </div>
                         </div>

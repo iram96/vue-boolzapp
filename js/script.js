@@ -108,10 +108,10 @@ const chatList = new Vue({
           console.log(this.contacts[index].visible)
           return this.contacts[index].visible;
         },
-        // toggleBGC(index){
-        //   this.contacts[index].visible = !this.contacts[index].visible;
+        isActive(index){
           
-        // },
+          return index === this.currentOpenChat;
+        },
         sentOrReceived(index){
           const currentIndex = this.currentOpenChat;
           const status = this.contacts[currentIndex].messages[index].status;
